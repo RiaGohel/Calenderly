@@ -13,6 +13,9 @@ const useStyles = makeStyles({
     width: "65%",
     height: "100%",
   },
+  gridroot: {
+    flexGrow: 1,
+  },
   note: {
     display: "flex",
     justifyContent: "center",
@@ -47,29 +50,24 @@ export default function App() {
     >
       <Grid item style={{ height: "550px" }}>
         <Card className={classes.root}>
-          <CardContent>
-            <Typography
-              className={classes.title}
-              color="textSecondary"
-              gutterBottom
-            >
-              Word of the Day
-            </Typography>
-            <Typography variant="h5" component="h2">
-              be{bull}nev{bull}o{bull}lent
-            </Typography>
-            <Typography className={classes.pos} color="textSecondary">
-              adjective
-            </Typography>
-            <Typography variant="body2" component="p">
-              well meaning and kindly.
-              <br />
-              {'"a benevolent smile"'}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small">Learn More</Button>
-          </CardActions>
+          <div className={classes.gridroot} style={{ height: "inherit" }}>
+            <Grid container spacing={0} style={{ height: "inherit" }}>
+              <Grid
+                item
+                xs={12}
+                sm={6}
+                style={{
+                  borderRight:
+                    "1px solid var(--text-color-level3, rgba(26, 26, 26, 0.1))",
+                }}
+              >
+                <p>Left Side</p>
+              </Grid>
+              <Grid item xs={12} sm={6}>
+                <p>Right Side</p>
+              </Grid>
+            </Grid>
+          </div>
         </Card>
       </Grid>
     </Grid>
