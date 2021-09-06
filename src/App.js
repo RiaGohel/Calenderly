@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
+import IconButton from "@material-ui/core/IconButton";
+
+// Icons
 import VideocamIcon from "@material-ui/icons/Videocam";
 import WatchLaterIcon from "@material-ui/icons/WatchLater";
+import ChevronLeftIcon from "@material-ui/icons/ChevronLeft";
+import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 
 const useStyles = makeStyles({
   root: {
@@ -39,6 +44,22 @@ export default function App() {
   let name = "Raj";
   let meeting_time = 30;
   let prompt_message = "Web conferencing details provided upon confirmation";
+  let months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let [month, setMonth] = useState("December");
+  let [year, setYear] = useState(2021);
 
   return (
     <Grid
@@ -116,7 +137,48 @@ export default function App() {
                 </div>
               </Grid>
               <Grid item xs={12} sm={6}>
-                <p>Right Side</p>
+                <div style={{ textAlign: "left", marginLeft: "27px" }}>
+                  <h3 style={{ marginTop: "27px", marginBottom: "0px" }}>
+                    Select a Date & Time
+                  </h3>
+                  <div
+                    style={{
+                      display: "flex",
+                      color: "grey",
+                      fontWeight: "bold",
+                      marginTop: "10px",
+                    }}
+                  >
+                    <div
+                      style={{
+                        width: "100%",
+                        marginTop: "10px",
+                      }}
+                    >
+                      {month + " " + year}
+                    </div>
+                    <div
+                      style={{
+                        width: "100%",
+                        display: "inline-flex",
+                        marginTop: "0",
+                        marginRight: "10px",
+                        justifyContent: "right",
+                      }}
+                    >
+                      <div>
+                        <IconButton aria-label="left-month">
+                          <ChevronLeftIcon />
+                        </IconButton>
+                      </div>
+                      <div>
+                        <IconButton aria-label="right-month">
+                          <ChevronRightIcon />
+                        </IconButton>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </Grid>
             </Grid>
           </div>
